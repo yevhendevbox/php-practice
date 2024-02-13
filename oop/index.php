@@ -20,10 +20,14 @@ $myAccount = new Account('Yevhen Dovhan', 30000, $socialMedia);
 $myAccount?->deposit(5000)->deposit(1000);
 
 $currentWeek = new CurrentWeek();
-foreach ($currentWeek as $key => $value) {
+function foo(iterable $week) {
+  foreach ($week as $key => $value) {
   var_dump($key, $value);
   echo '</br>';
 }
+}
+
+foo($currentWeek);
 
 // var_dump($myAccount::INTEREST_RATE);
 // $myUtility->printAnArray([]);
