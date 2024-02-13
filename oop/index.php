@@ -9,7 +9,7 @@ spl_autoload_register(function (string $class) {
 });
 
 // ? Acount class now placed in App namespace
-use App\{ Account, SocialMedia} ;
+use App\{ Account, SocialMedia, CurrentWeek} ;
 
 $socialMedia = new SocialMedia('telegram', '@yevhen-d');
 $myAccount = new Account('Yevhen Dovhan', 30000, $socialMedia);
@@ -18,6 +18,12 @@ $myAccount = new Account('Yevhen Dovhan', 30000, $socialMedia);
 // ? If value myAccount = null calling php will prevent calling object method
 // ? also chain methods because of return $this inside of a method
 $myAccount?->deposit(5000)->deposit(1000);
+
+$currentWeek = new CurrentWeek();
+foreach ($currentWeek as $key => $value) {
+  var_dump($key, $value);
+  echo '</br>';
+}
 
 // var_dump($myAccount::INTEREST_RATE);
 // $myUtility->printAnArray([]);
